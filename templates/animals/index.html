@@ -1,0 +1,56 @@
+{% extends 'template_base.html' %}
+
+{% block content %}
+
+
+        {% for animal in animals %}
+    <section class="results-section">
+      <ul class="results">
+        <li class="result">
+          <h3 class="result-description">
+            Nome do animal
+          </h3>
+          <h2 class="result-title">
+            {{ animal.name }}
+          </h2>
+        </li>
+        <li class="result">
+          <h2 class="result-description">
+            Predador
+          </h2>
+          <h3 class="result-description">
+            {% if animal.predador%}
+              {{ 'Sim' }}
+            {% else %}
+              {{ 'Não' }}
+            {% endif %}
+          </h3>
+        </li>
+        <li class="result">
+          <h2 class="result-description">
+            Venenoso
+          </h2>
+          <h3 class="result-description">
+            {% if animal.poisonous %}
+              {{ 'Sim' }}
+            {% else %}
+              {{ 'Não' }}
+            {% endif %}
+          </h3>
+        </li>
+        <li class="result">
+          <h2 class="result-description">
+            Doméstico
+          </h2>
+          <h3 class="result-description">
+            {% if animal.domestic %}
+              {{ 'Sim' }}
+            {% else %}
+              {{ 'Não' }}
+            {% endif %}
+          </h3>
+        </li>
+      </ul>
+    </section>
+{% endfor %}
+{% endblock %}

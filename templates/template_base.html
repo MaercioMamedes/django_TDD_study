@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon" href="https://cdn.iconscout.com/icon/premium/png-256-thumb/lion-83-877087.png"
+          type="image/x-icon">
+    <title>Busca Animal</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+      <a class="navbar__link" href="{% url 'animals:index' %}">Busca Animal</a>
+        </nav>
+
+    <section class="search-section">
+        <h1 class="title">Pesquise um animal e descubra <span class="title__detail">4 coisas</span> sobre ele</h1>
+
+        <form class="form" action="{% url 'animals:index' %}" method="POST">
+            {% csrf_token %}
+          <input class="form__input form-control" type="text" id="buscar-animal" name="buscar" placeholder="Exemplo: leão, urso..." aria-label="Buscar animal"/>
+
+          <button type="submit" class="button">Pesquisar</button>
+        </form>
+    </section>
+    </header>
+    {% block content %}
+
+    {% endblock %}
+
+
+
+
+
+</body>
+</html>
